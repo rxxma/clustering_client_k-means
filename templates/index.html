@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Segmentation de clients - Accueil{% endblock %}
+
+{% block content %}
+    <!-- Hero -->
+    <section class="hero text-center mb-5">
+        <h1 class="display-5 text-primary">Segmentation de clients</h1>
+        <p class="lead text-center justify-content-center">
+            Analyse descriptive, visualisation des clusters et synthèse des profils clients
+            à partir de données de comportement d’achat.
+        </p>
+    </section>
+
+    <!-- Cartes de présentation des 3 pages -->
+    <section class="recettes">
+        <h2 class="text-center mb-4">Contenu de l’application</h2>
+        <div class="row">
+            <!-- Carte 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card recette-card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Statistiques descriptives</h5>
+                        <p class="card-text">
+                            Histogrammes, boxplots et matrice de corrélation pour comprendre
+                            la distribution et les relations entre les variables clients.
+                        </p>
+                        <a href="{{ url_for('main.stats') }}" class="btn btn-primary">
+                            Voir les graphiques
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Carte 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card recette-card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Scatter plot des clusters</h5>
+                        <p class="card-text">
+                            Visualisation des clusters sur un plan factoriel :
+                            chaque point représente un client coloré selon son cluster.
+                        </p>
+                        <a href="{{ url_for('main.clusters') }}" class="btn btn-primary">
+                            Voir les clusters
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Carte 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card recette-card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Tableau de synthèse</h5>
+                        <p class="card-text">
+                            Tableau récapitulatif des caractéristiques moyennes de chaque cluster :
+                            âge, revenu, fréquence et montant moyen d’achat.
+                        </p>
+                        <a href="{{ url_for('main.summary') }}" class="btn btn-primary">
+                            Voir la synthèse
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

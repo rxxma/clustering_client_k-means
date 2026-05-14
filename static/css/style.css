@@ -1,0 +1,987 @@
+/* ==========================================================================
+   VARIABLES DE COULEURS - GRIS BLUE ELEGANCE
+   ========================================================================== */
+:root {
+    /* Palette principale Gris Blue */
+    --midnight-blue: #2C3E50;
+    --slate-gray: #4A6572;
+    --steel-blue: #5D8AA8;
+    --light-steel: #8AAEC1;
+    --pale-gray: #ECF0F1;
+    --silver: #BDC3C7;
+    --dark-slate: #34495E;
+    --soft-white: #F8F9FA;
+    
+    /* Accents */
+    --accent-blue: #3498DB;
+    --accent-teal: #1ABC9C;
+    --accent-coral: #E74C3C;
+    
+    /* Variations */
+    --midnight-light: #3A506B;
+    --midnight-dark: #1C2833;
+    --slate-light: #5B7483;
+    --slate-dark: #3A4A52;
+    --steel-light: #6F9AC2;
+    --steel-dark: #4C6B8A;
+    
+    /* Couleurs fonctionnelles */
+    --primary: var(--midnight-blue);
+    --primary-light: var(--midnight-light);
+    --primary-dark: var(--midnight-dark);
+    --secondary: var(--steel-blue);
+    --secondary-light: var(--steel-light);
+    --secondary-dark: var(--steel-dark);
+    --accent: var(--accent-teal);
+    --neutral: var(--slate-gray);
+    --background: var(--pale-gray);
+    --card-bg: var(--soft-white);
+    
+    /* Gradients */
+    --blue-gradient: linear-gradient(135deg, var(--midnight-blue), var(--steel-blue));
+    --gray-gradient: linear-gradient(135deg, var(--slate-gray), var(--dark-slate));
+    --accent-gradient: linear-gradient(135deg, var(--accent-teal), var(--accent-blue));
+    
+    /* Ombres */
+    --shadow-soft: rgba(44, 62, 80, 0.08);
+    --shadow-medium: rgba(44, 62, 80, 0.15);
+    --shadow-strong: rgba(44, 62, 80, 0.25);
+    --shadow-dark: rgba(28, 40, 51, 0.4);
+    
+    /* Mode clair */
+    --bg-light: var(--pale-gray);
+    --card-light: var(--soft-white);
+    --text-light: var(--midnight-dark);
+    --border-light: var(--silver);
+    
+    /* Mode sombre */
+    --bg-dark: #1A2026;
+    --card-dark: #242F3D;
+    --text-dark: #ECF0F1;
+    --border-dark: #3A4553;
+}
+
+/* ==========================================================================
+   RÉINITIALISATION ET STYLES DE BASE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: var(--text-light);
+    background-color: var(--bg-light);
+    transition: all 0.3s ease;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Effet de texture subtile */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 15% 15%, rgba(93, 138, 168, 0.03) 0%, transparent 25%),
+        radial-gradient(circle at 85% 85%, rgba(44, 62, 80, 0.03) 0%, transparent 25%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ==========================================================================
+   COMPOSANTS - NAVIGATION
+   ========================================================================== */
+
+/* HEADER NAVBAR */
+.header .navbar {
+    background: var(--blue-gradient) !important;
+    border-bottom: 3px solid var(--accent-teal);
+    box-shadow: 0 4px 20px var(--shadow-strong);
+    padding: 0.8rem 0;
+    backdrop-filter: blur(8px);
+}
+
+.header .navbar-brand {
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: var(--soft-white) !important;
+    letter-spacing: -0.5px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+    padding: 0.5rem 1.25rem !important;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
+    font-size: 0.95rem;
+    margin: 0 0.25rem;
+}
+
+.nav-link:hover {
+    color: var(--soft-white) !important;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+.nav-link.active {
+    color: var(--soft-white) !important;
+    background-color: rgba(255, 255, 255, 0.15);
+    font-weight: 600;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 1.25rem;
+    right: 1.25rem;
+    height: 2px;
+    background-color: var(--accent-teal);
+    border-radius: 1px;
+}
+
+/* ==========================================================================
+   COMPOSANTS - TYPOGRAPHIE
+   ========================================================================== */
+.display-5 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--midnight-blue);
+    font-weight: 700;
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.display-5::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: var(--accent-gradient);
+    border-radius: 2px;
+}
+
+.text-primary {
+    color: var(--midnight-blue) !important;
+}
+
+.text-secondary {
+    color: var(--steel-blue) !important;
+}
+
+.text-accent {
+    color: var(--accent-teal) !important;
+}
+
+.text-muted {
+    color: var(--slate-gray) !important;
+}
+
+.dark-theme .text-muted {
+    color: var(--light-steel) !important;
+}
+
+.dark-theme .display-5 {
+    color: var(--soft-white);
+}
+
+/* ==========================================================================
+   COMPOSANTS - CARTES
+   ========================================================================== */
+.recette-card {
+    background-color: var(--card-light);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 4px 20px var(--shadow-soft);
+}
+
+.recette-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--accent-gradient);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.recette-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px var(--shadow-medium);
+    border-color: var(--steel-blue);
+}
+
+.recette-card:hover::before {
+    opacity: 1;
+}
+
+.recette-card img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    background: linear-gradient(45deg, var(--slate-gray), var(--midnight-blue));
+    transition: transform 0.5s ease;
+}
+
+.recette-card:hover img {
+    transform: scale(1.05);
+}
+
+.card-title {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--midnight-blue);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1.4;
+}
+
+.card-text {
+    color: var(--slate-gray);
+    flex-grow: 1;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.dark-theme .card-title {
+    color: var(--soft-white);
+}
+
+.dark-theme .card-text {
+    color: var(--light-steel);
+}
+
+/* ==========================================================================
+   COMPOSANTS - TABLEAU
+   ========================================================================== */
+.table-card {
+    background-color: var(--card-light);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px var(--shadow-soft);
+}
+
+.table-card .card-body {
+    padding: 1.25rem;
+}
+
+.table {
+    margin-bottom: 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.9rem;
+}
+
+.table thead th {
+    background: var(--blue-gradient);
+    color: var(--soft-white);
+    border-bottom: 2px solid var(--accent-teal);
+    font-weight: 600;
+    padding: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+}
+
+.table tbody td {
+    padding: 0.875rem;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(93, 138, 168, 0.08);
+    transition: background-color 0.2s ease;
+}
+
+.dark-theme .table thead th {
+    background: linear-gradient(135deg, var(--midnight-dark), var(--dark-slate));
+    border-bottom: 2px solid var(--accent-teal);
+}
+
+.dark-theme .table tbody td {
+    border-bottom: 1px solid var(--border-dark);
+}
+
+/* ==========================================================================
+   COMPOSANTS - BOUTONS
+   ========================================================================== */
+.btn {
+    font-family: 'Inter', sans-serif;
+    border-radius: 8px;
+    padding: 0.625rem 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    font-size: 0.95rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--shadow-medium);
+}
+
+.btn-primary {
+    background: var(--blue-gradient);
+    color: var(--soft-white) !important;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--midnight-light), var(--steel-blue));
+    color: var(--soft-white) !important;
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, var(--slate-gray), var(--dark-slate));
+    color: var(--soft-white) !important;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, var(--slate-light), var(--slate-gray));
+    color: var(--soft-white) !important;
+}
+
+.btn-accent {
+    background: var(--accent-gradient);
+    color: var(--soft-white) !important;
+}
+
+.btn-accent:hover {
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-teal));
+    color: var(--soft-white) !important;
+}
+
+.btn-outline-primary {
+    background: transparent;
+    border: 2px solid var(--midnight-blue);
+    color: var(--midnight-blue);
+}
+
+.btn-outline-primary:hover {
+    background: var(--midnight-blue);
+    color: var(--soft-white) !important;
+}
+
+/* ==========================================================================
+   COMPOSANTS - HERO SECTION
+   ========================================================================== */
+.hero {
+    padding: 4rem 0;
+    text-align: center;
+    background: linear-gradient(135deg, 
+        var(--pale-gray) 0%, 
+        #E3E7EA 50%, 
+        #D6DDE2 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232C3E50' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.hero h1 {
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--slate-dark);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    position: relative;
+    z-index: 2;
+}
+
+.dark-theme .hero {
+    background: linear-gradient(135deg, 
+        var(--bg-dark) 0%, 
+        #212933 50%, 
+        #1A2026 100%);
+}
+
+.dark-theme .hero p {
+    color: var(--light-steel);
+}
+
+/* ==========================================================================
+   COMPOSANTS - FOOTER
+   ========================================================================== */
+.footer {
+    background: var(--blue-gradient);
+    color: var(--soft-white);
+    margin-top: auto;
+    padding: 2.5rem 0 1.25rem;
+    border-top: 3px solid var(--accent-teal);
+}
+
+.footer h5 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--soft-white);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+.footer p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    font-size: 0.9rem;
+}
+
+.footer a:hover {
+    color: var(--accent-teal);
+    padding-left: 5px;
+}
+
+.footer a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--accent-teal);
+    transition: width 0.3s ease;
+}
+
+.footer a:hover::after {
+    width: 100%;
+}
+
+/* ==========================================================================
+   STYLES SPÉCIFIQUES POUR LES CARTES DE LA PAGE D'ACCUEIL
+   ========================================================================== */
+.index-page .recette-card {
+    min-height: 340px;
+}
+
+.index-page .card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.index-page .card-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.index-page .card-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.index-page .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    margin-top: auto;
+}
+
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+@keyframes subtleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hero {
+        padding: 3rem 0;
+    }
+    
+    .hero h1 {
+        font-size: 2.25rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .recette-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .recette-card img {
+        height: 180px;
+    }
+    
+    .table-responsive {
+        margin: 0 -1rem;
+    }
+    
+    .nav-link {
+        padding: 0.625rem 1rem !important;
+        margin: 0.25rem 0;
+        text-align: center;
+    }
+    
+    .display-5 {
+        font-size: 2.5rem;
+    }
+    
+    .footer {
+        padding: 2rem 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.875rem;
+    }
+    
+    .hero p {
+        font-size: 0.95rem;
+    }
+    
+    .recette-card img {
+        height: 160px;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .footer .row > div {
+        margin-bottom: 1.5rem;
+    }
+    
+    .index-page .card-body {
+        padding: 1.25rem;
+    }
+}
+
+/* ==========================================================================
+   UTILITAIRES
+   ========================================================================== */
+.shadow-soft {
+    box-shadow: 0 4px 16px var(--shadow-soft);
+}
+
+.shadow-medium {
+    box-shadow: 0 8px 25px var(--shadow-medium);
+}
+
+.gradient-text {
+    background: var(--blue-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+.accent-text {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+.loading-shimmer {
+    background: linear-gradient(
+        90deg,
+        var(--border-light) 25%,
+        rgba(93, 138, 168, 0.3) 50%,
+        var(--border-light) 75%
+    );
+    background-size: 200% auto;
+    animation: shimmer 1.5s infinite linear;
+    border-radius: 8px;
+}
+
+/* Typographie améliorée */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--midnight-blue);
+    line-height: 1.3;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+
+
+p {
+    margin-bottom: 1rem;
+    max-width: 65ch;
+}
+
+/* Styles pour les images */
+.img-fluid.rounded.border {
+    border: 1px solid var(--border-light) !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px var(--shadow-soft);
+}
+
+.img-fluid.rounded.border:hover {
+    border-color: var(--steel-blue) !important;
+    box-shadow: 0 8px 20px var(--shadow-medium);
+    transform: scale(1.02);
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--pale-gray);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gray-gradient);
+    border-radius: 5px;
+    border: 2px solid var(--pale-gray);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--slate-light), var(--slate-gray));
+}
+
+
+/* Badges */
+.badge-primary {
+    background: var(--blue-gradient);
+    color: var(--soft-white);
+    padding: 0.4rem 0.875rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.badge-primary:hover {
+    border-color: var(--accent-teal);
+    transform: translateY(-2px);
+}
+
+.badge-secondary {
+    background: var(--gray-gradient);
+    color: var(--soft-white);
+    padding: 0.4rem 0.875rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.badge-secondary:hover {
+    border-color: var(--steel-blue);
+    transform: translateY(-2px);
+}
+
+.badge-accent {
+    background: var(--accent-gradient);
+    color: var(--soft-white);
+    padding: 0.4rem 0.875rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.badge-accent:hover {
+    border-color: var(--midnight-blue);
+    transform: translateY(-2px);
+}
+
+/* Séparateurs */
+.separator {
+    height: 2px;
+    background: var(--accent-gradient);
+    width: 60px;
+    margin: 1.5rem auto;
+    border-radius: 1px;
+    position: relative;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-teal);
+    border-radius: 50%;
+}
+
+.separator::before {
+    left: -20px;
+}
+
+.separator::after {
+    right: -20px;
+}
+
+/* Effets de flottement */
+.float-element {
+    animation: subtleFloat 6s ease-in-out infinite;
+}
+
+/* Pulsation pour éléments importants */
+.pulse-element {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Carte avec effet de superposition */
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(44, 62, 80, 0.4) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    border-radius: 12px;
+    pointer-events: none;
+}
+
+.recette-card:hover .card-overlay {
+    opacity: 1;
+}
+
+/* Overlay pour images */
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        45deg,
+        rgba(44, 62, 80, 0.2) 0%,
+        transparent 100%
+    );
+    border-radius: 12px;
+    pointer-events: none;
+}
+
+/* Effets de focus améliorés */
+:focus {
+    outline: 2px solid var(--accent-teal);
+    outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Transition pour tous les éléments interactifs */
+a, button, input, select, textarea {
+    transition: all 0.2s ease;
+}
+
+/* Style pour les états désactivés */
+.btn:disabled,
+.btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Style pour les messages d'alerte */
+.alert {
+    border-radius: 8px;
+    border: none;
+    font-weight: 500;
+}
+
+.alert-primary {
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.1), rgba(93, 138, 168, 0.1));
+    color: var(--midnight-blue);
+    border-left: 4px solid var(--midnight-blue);
+}
+
+
+
+/* Style pour les tooltips */
+.tooltip-inner {
+    background-color: var(--midnight-blue);
+    color: var(--soft-white);
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+}
+
+.tooltip.bs-tooltip-top .arrow::before {
+    border-top-color: var(--midnight-blue);
+}
+
+/* Style pour les modals */
+.modal-content {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    background: var(--blue-gradient);
+    color: var(--soft-white);
+    border-radius: 12px 12px 0 0;
+}
+
+.modal-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+/* Animation pour le chargement */
+.loading-spinner {
+    border: 3px solid var(--border-light);
+    border-top: 3px solid var(--accent-teal);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Style pour les formulaires */
+.form-label {
+    font-weight: 600;
+    color: var(--midnight-blue);
+    margin-bottom: 0.5rem;
+}
+
+
+.form-control {
+    border-radius: 8px;
+    padding: 0.625rem 0.875rem;
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: var(--accent-teal);
+    box-shadow: 0 0 0 0.2rem rgba(26, 188, 156, 0.25);
+}
+
+/* Style pour les checkboxes et radios */
+.form-check-input:checked {
+    background-color: var(--accent-teal);
+    border-color: var(--accent-teal);
+}
+
+.form-check-input:focus {
+    border-color: var(--accent-teal);
+    box-shadow: 0 0 0 0.2rem rgba(26, 188, 156, 0.25);
+}

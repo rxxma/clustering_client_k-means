@@ -1,0 +1,7 @@
+
+Name: Graphite2
+Description: Font rendering engine for Complex Scripts
+Version: 3.0.1
+Libs: -LC:/Users/user/Desktop/Projet_Segmentation_Clients/clustring_venv/Library/lib -lgraphite2
+Cflags: -IC:/Users/user/Desktop/Projet_Segmentation_Clients/clustring_venv/Library/include
+

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Segmentation de clients - Clusters</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+{% extends "base.html" %}
+
+{% block title %}Segmentation de clients - Clusters{% endblock %}
+
+{% block content %}
+    <section class="mb-4 text-center">
+        <h1 class="display-5 text-primary">Visualisation des clusters</h1>
+    </section>
+
+    <section class="row justify-content-center g-4">
+        {% for img in image_files %}
+            <div class="col-md-6">
+                <div class="card recette-card">
+                    <div class="card-body text-center">
+                        <img src="{{ url_for('static', filename=img) }}"
+                             alt="Scatter plot des clusters - {{ img | replace('plots/res/', '') }}"
+                             class="img-fluid w-100 rounded border h-100"
+                             style="max-height: 420px; object-fit: contain; width:100%; height:auto;"
+                             loading="lazy">
+                        <p class="small text-muted">
+                            Chaque point correspond à un client, coloré selon son cluster.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}

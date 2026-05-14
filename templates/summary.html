@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Segmentation de clients - Synthèse par cluster{% endblock %}
+
+{% block content %}
+    <section class="mb-4">
+        <h1 class="display-5 text-primary">Synthèse par cluster</h1>
+        <p class="text-muted ">
+            Tableau récapitulatif des caractéristiques moyennes pour chaque cluster
+            (âge, revenu, fréquence d’achat, montant moyen, etc.).
+        </p>
+    </section>
+
+    <section class="card table-card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead>
+                    <tr>
+                        {% for col in columns %}
+                            <th scope="col">{{ col }}</th>
+                        {% endfor %}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for row in tables %}
+                        <tr>
+                            {% for col in columns %}
+                                <td>{{ row[col] }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+{% endblock %}
